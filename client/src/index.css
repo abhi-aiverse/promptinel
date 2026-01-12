@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Warm brownish enterprise-grade palette */
+  --background: 30 20% 98%; /* Warm white/cream */
+  --foreground: 20 20% 12%; /* Deep charcoal brown */
+  
+  --primary: 25 30% 35%; /* Sophisticated warm brown */
+  --primary-foreground: 30 20% 98%;
+  
+  --secondary: 30 15% 94%;
+  --secondary-foreground: 20 20% 12%;
+  
+  --muted: 30 10% 94%;
+  --muted-foreground: 25 10% 45%;
+  
+  --accent: 30 15% 94%;
+  --accent-foreground: 20 20% 12%;
+  
+  --destructive: 0 50% 50%;
+  --destructive-foreground: 30 20% 98%;
+
+  --success: 142 30% 36%;
+  --success-foreground: 30 20% 98%;
+
+  --warning: 38 40% 50%;
+  --warning-foreground: 30 20% 98%;
+
+  --border: 30 15% 88%;
+  --input: 30 15% 88%;
+  --ring: 25 30% 35%;
+  
+  --radius: 0.5rem;
+  --card-shadow: 0 1px 3px 0 rgb(45 35 25 / 0.1), 0 1px 2px -1px rgb(45 35 25 / 0.1);
+}
+
+.dark {
+  --background: 222 47% 11%;
+  --foreground: 210 40% 98%;
+  
+  --primary: 217 91% 60%;
+  --primary-foreground: 222 47% 11%;
+  
+  --secondary: 217 19% 27%;
+  --secondary-foreground: 210 40% 98%;
+  
+  --muted: 217 19% 27%;
+  --muted-foreground: 215 20% 65%;
+  
+  --accent: 217 19% 27%;
+  --accent-foreground: 210 40% 98%;
+  
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 210 40% 98%;
+  
+  --border: 217 19% 27%;
+  --input: 217 19% 27%;
+  --ring: 217 91% 60%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Technical feel for code and data */
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  
+  .animate-in {
+    animation: animateIn 0.3s ease-out forwards;
+  }
+  
+  @keyframes animateIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Enterprise UI focus shadows */
+  .enterprise-shadow {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+}
